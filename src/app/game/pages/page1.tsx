@@ -35,7 +35,7 @@ const ImproperFractionGame = () => {
                 {/* Mixed Number */}
                 <WholeFraction whole={1} num={1} denom={2} size='text-5xl '/>
                 <div className='text-5xl ' >=</div>
-                <Fraction size='text-5xl'/>
+                <Fraction size='text-5xl' num='?' denom='?'/>
               </div>
             </div>
         </div>

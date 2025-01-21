@@ -7,7 +7,7 @@ import MathProblem from "../components/mathProblem";
 const Page4 = () => {
     return (
       <div className="min-h-screen p-8">
-        <div className="max-w-2xl mx-auto bg-pink-50 rounded-lg shadow-lg">
+        <div className="max-w-2xl mx-auto  rounded-lg shadow-lg">
           {/* Header */}
           <Header2 />
   

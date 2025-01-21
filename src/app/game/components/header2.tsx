@@ -15,7 +15,7 @@ const Header2 = ()=>{
             <div className="bg-white text-black h-28 flex items-center justify-center border-4 border-[#f54f7b] rounded-lg">
               <WholeFraction whole={1} num={1} denom={2} size="text-3xl" />
               <div className="text-4xl">=</div>
-              <Fraction size="text-4xl" />
+              <Fraction size="text-4xl" num="?" denom="?"/>
               <div className="h-28 flex justify-center items-center bg-white border-l-4 border-t-4 border-b-4 border-[#f54f7b] rounded-lg w-24">
                 <span className="text-7xl">🤔</span>
               </div>

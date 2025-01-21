@@ -34,7 +34,10 @@
 import React, { useState } from 'react';
 import Pizza from '../components/pizza'
 import { Card } from '@/components/ui/card';
-import { Button } from '@/components/ui/button';
+import Fraction from '../components/fraction';
+import Button from '../components/button';
+import Header2 from '../components/header2';
+import StepModule from '../components/stepModule';
 
 interface PizzaProps {
   numerator: number;
@@ -48,7 +51,9 @@ const FractionAddition = () => {
 
   return (
     <div className="flex flex-col items-center p-8 w-full max-w-4xl mx-auto">
-      <div className="flex items-center  w-full">
+        <Header2/>
+        <StepModule />
+      <div className="flex items-center  w-full border border-black">
         <div className="flex flex-col">
             {/* <div className='flex justify-center items-center'> */}
           <div className="flex items-center gap-4">
@@ -57,19 +62,32 @@ const FractionAddition = () => {
             <Pizza numerator={4} denominator={4} color="#99d502" circleColor="#c7e308" />
           </div>
           
-          <div className="relative mt-2 mx-6">
-            <div className="h-0.5 bg-black w-full absolute"></div>
-            <div className="text-center mt-2 text-xl font-bold">12</div>
-            <div className="text-center text-xl font-bold">4</div>
+          <div className="relative mt-1 mx-6">
+            <div className="flex items-center">
+            {/* Left vertical line */}
+            <div className="h-4 bg-black w-1" style={{ width: '2px' }}></div>
+            {/* Middle horizontal line with custom width */}
+            <div className="h-1 bg-black mt-3" style={{ width: '48%' }}></div>
+
+            <Fraction size='text-2xl' num='12' denom='4'/>
+
+            <div className="h-1 bg-black mt-3" style={{ width: '48%' }}></div>
+            {/* Right vertical line */}
+            <div className="h-4 bg-black w-1" style={{ width: '2px' }}></div>
+            </div>
           </div>
+          
+          
         </div>
+
+
         <div className="text-2xl font-bold mx-4">+</div>
           {/* </div> */}
 
-        <Card className="bg-pink-100 p-6 flex-1">
+        <div className="bg-[#ffdad8] p-6 flex-1 border border-black ">
           <div className="flex flex-col items-center gap-4">
             <h2 className="text-pink-500 text-xl font-bold mb-4">Select 2/4ths here</h2>
-            
+            <div className="flex flex-col">
             <div className="relative w-32 h-32">
               <Pizza 
                 numerator={selectedPieces} 
@@ -79,35 +97,29 @@ const FractionAddition = () => {
               />
             </div>
 
-            <div className="flex items-center justify-center mt-2 relative">
-              {/* Left bracket */}
-              <div className="absolute -left-4 top-0 bottom-0 w-1 flex flex-col">
-                <div className="h-1 w-4 bg-black"></div>
-                <div className="flex-1 w-1 bg-black"></div>
-                <div className="h-1 w-4 bg-black"></div>
-              </div>
 
-              <div className="text-2xl font-bold">
-                <div className="text-center">{selectedPieces}</div>
-                <div className="border-t-2 border-black"></div>
-                <div className="text-center">4</div>
-              </div>
+            <div className="relative mt-1 mx-6">
+            <div className="flex items-center">
+            {/* Left vertical line */}
+            <div className="h-4 bg-black w-1" style={{ width: '2px' }}></div>
+            {/* Middle horizontal line with custom width */}
+            <div className="h-1 bg-black mt-3" style={{ width: '48%' }}></div>
 
-              {/* Right bracket */}
-              <div className="absolute -right-4 top-0 bottom-0 w-1 flex flex-col">
-                <div className="h-1 w-4 bg-black ml-auto"></div>
-                <div className="flex-1 w-1 bg-black ml-auto"></div>
-                <div className="h-1 w-4 bg-black ml-auto"></div>
-              </div>
+            <Fraction size='text-2xl' num='12' denom='4'/>
+
+            <div className="h-1 bg-black mt-3" style={{ width: '48%' }}></div>
+            {/* Right vertical line */}
+            <div className="h-4 bg-black w-1" style={{ width: '2px' }}></div>
+            </div>
+            </div>
             </div>
 
-            <Button 
-              className="bg-pink-400 hover:bg-pink-500 text-white px-8 py-2 rounded mt-4"
-            >
-              Done
-            </Button>
+            <div className='border-black  flex justify-center items-center shadow-[-5px_5px_0px_black]'>
+            <Button text='DONE' symbol=''/>
+            </div>
+            
           </div>
-        </Card>
+        </div>
       </div>
     </div>
   );

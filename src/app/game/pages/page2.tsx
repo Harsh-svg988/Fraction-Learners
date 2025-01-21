@@ -142,13 +142,16 @@ const MathLearningGame = () => {
         </div>
 
         {/* Bottom section */}
-        <div className="bg-white p-6 rounded-lg mb-8 text-center text-2xl">
-          <span className="text-[#f54f7b] font-bold">3 2/4</span>
-          <span className="mx-4">=</span>
-          <span className="text-green-600 font-bold">3 wholes</span>
-          <span className="mx-4">+</span>
-          <span className="text-[#f54f7b] font-bold">2/4</span>
+        <div className="bg-white p-6 rounded-lg mb-8 text-center text-2xl flex justify-center items-center">
+
+          <WholeFraction whole={3} num={2} denom={4} size='text-2xl '/>
+          <div className='text-4xl ' >=</div>
+          <div className='text-green-600 mx-2 text-3xl'>3 wholes</div>
+          <div className='text-4xl text-[#f54f7b]' >+</div>
+          <Fraction size='text-3xl' num='2' denom='4'/>
+
         </div>
+
 
         {/* Next step button */}
           <div className="flex justify-center items-center relative">

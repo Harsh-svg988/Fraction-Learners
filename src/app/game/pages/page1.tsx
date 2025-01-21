@@ -39,6 +39,7 @@ const ImproperFractionGame = () => {
               </div>
             </div>
         </div>
+        
         <div className="flex justify-center items-center mt-6">
         <Button text='START' symbol='&gt;&gt;'/>
         </div>

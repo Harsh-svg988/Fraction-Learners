@@ -1,39 +1,6 @@
-// import React from "react";
-// import Header2 from '../components/header2'
-// import StepModule from '../components/stepModule';
-// import Pizza from '../components/pizza'
-// import MathProblem from "../components/mathProblem";
-
-// const Page5 = () => {
-//     return (
-//       <div className="min-h-screen p-8">
-//         <div className="max-w-2xl mx-auto  rounded-lg shadow-lg">
-//           {/* Header */}
-//           <Header2 />
-  
-//           {/* Step indicator */}
-//           <StepModule />
-//           <div className="flex justify-center">
-//             <div className="flex gap-3">
-//                 <Pizza numerator={4} denominator={4}  circleColor="#c7e308" />
-//                 <Pizza numerator={3} denominator={4}  circleColor="#c7e308"/>
-//                 <Pizza numerator={0} denominator={4} color="#99d502" circleColor="#c7e308"/>
-//             </div>
-//           </div>
-//           <MathProblem/>
-//         </div>
-//       </div>
-//     );
-//   };
-
-// export default Page5  
-  
-
-
 
 import React, { useState } from 'react';
 import Pizza from '../components/pizza'
-import { Card } from '@/components/ui/card';
 import Fraction from '../components/fraction';
 import Button from '../components/button';
 import Header2 from '../components/header2';
@@ -55,7 +22,6 @@ const FractionAddition = () => {
         <StepModule />
       <div className="flex items-center  w-full border border-black">
         <div className="flex flex-col">
-            {/* <div className='flex justify-center items-center'> */}
           <div className="flex items-center gap-4">
             <Pizza numerator={4} denominator={4} color="#99d502" circleColor="#c7e308" />
             <Pizza numerator={4} denominator={4} color="#99d502" circleColor="#c7e308" />
@@ -115,7 +81,7 @@ const FractionAddition = () => {
             </div>
 
             <div className='border-black  flex justify-center items-center shadow-[-5px_5px_0px_black]'>
-            <Button text='DONE' symbol=''/>
+            <Button text='DONE' symbol='' onClick=""/>
             </div>
             
           </div>

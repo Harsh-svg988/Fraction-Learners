@@ -18,7 +18,7 @@ interface DropZone {
   fraction?: { numerator: number; denominator: number };
 }
 
-const MathLearningGame = () => {
+const Page2 = ({setPage}) => {
   const [dropZone, setDropZone] = useState<DropZone>({});
   
   const initialFraction: FractionTile = {
@@ -163,7 +163,7 @@ const MathLearningGame = () => {
                   outlineOffset: '-7px',
                 }}
               >
-              <Button text="START" symbol="&gt;&gt;" />
+              <Button text="START" symbol="&gt;&gt;" onClick={() => setPage(3)}/>
             </div>
           </div>
 
@@ -172,4 +172,4 @@ const MathLearningGame = () => {
   );
 };
 
-export default MathLearningGame;
+export default Page2;

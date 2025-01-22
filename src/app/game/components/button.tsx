@@ -1,8 +1,8 @@
 import React from "react";
 
-const Button = ({ text, symbol }) => {
+const Button = ({ text, symbol,onClick }) => {
   return symbol === undefined ? (
-        <button className="relative group">
+        <button className="relative group" onClick={onClick} >
             {/* Main button */}
             <div className="bg-[#f54f7b]  border-[#f54f7b] px-8 py-2 transform transition-transform duration-100 group-active:translate-x-1 group-active:translate-y-1">
             <div className="flex items-center space-x-2">
@@ -14,7 +14,7 @@ const Button = ({ text, symbol }) => {
         </button>
   
   ) : (
-    <button className="relative group">
+    <button className="relative group" onClick={onClick}>
       {/* Main button */}
       <div className="bg-white border-8 border-[#f54f7b] px-8 py-2 transform transition-transform duration-100 group-active:translate-x-1 group-active:translate-y-1">
         <div className="flex items-center space-x-2">

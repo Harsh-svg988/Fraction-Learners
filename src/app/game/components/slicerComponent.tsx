@@ -100,7 +100,7 @@ const SlicerIcon = ({ color }: { color: string }) => (
   </svg>
 );
 
-const PieSlicerSelector = () => {
+const PieSlicerSelector = ({setPage}) => {
   const [selectedSlicer, setSelectedSlicer] = useState<number | null>(null);
 
   const slicers = [
@@ -140,7 +140,7 @@ const PieSlicerSelector = () => {
 
         {/* Slice button */}
         <div className="mt-4 lg:mt-36   border-black  flex justify-center items-center shadow-[-5px_5px_0px_black] ml-9">
-          <button className="relative bg-pink-500 text-white text-2xl px-8 py-2 font-semibold ">
+          <button className="relative bg-pink-500 text-white text-2xl px-8 py-2 font-semibold " onClick={() => setPage(4)}>
             Slice
           </button>
         </div>

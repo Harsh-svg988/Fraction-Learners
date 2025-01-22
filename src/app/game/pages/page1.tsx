@@ -1,11 +1,14 @@
+
 import React, { useState } from 'react';
-import { Card } from '@/components/ui/card';
+import { useRouter } from 'next/navigation';
 import Button from '../components/button'
 import WholeFraction from '../components/wholeFraction';
 import Fraction from '../components/fraction';
 
 
-const ImproperFractionGame = () => {
+
+const Page1 = ({setPage,mixedFraction}) => {
+  const router = useRouter();
   const [started, setStarted] = useState(false);
   const [numerator, setNumerator] = useState('');
   const [denominator, setDenominator] = useState('');
@@ -19,7 +22,7 @@ const ImproperFractionGame = () => {
   };
 
   return (
-    <div className="flex justify-center mt-20 h-screen">
+    <div className="flex justify-center mt-20 ">
       <div>
         {/* Header */}
         <div className="bg-[#ebfb3e] p-4 border border-black transform shadow-[8px_8px_0px_0px_black] mb-14 mx-10">
@@ -33,15 +36,15 @@ const ImproperFractionGame = () => {
               <div className=" flex items-center justify-center border-4 border-[#f54f7b] w-[30%] h-full text-4xl border-r-[6px] text-[#f54f7b]">Level 1</div>
               <div className="flex items-center justify-center space-x-2 border-4 border-[#f54f7b] w-[70%] h-full ">
                 {/* Mixed Number */}
-                <WholeFraction whole={1} num={1} denom={2} size='text-5xl '/>
+                <WholeFraction whole={mixedFraction.whole} num={mixedFraction.numerator} denom={mixedFraction.denominator} size='text-5xl '/>
                 <div className='text-5xl ' >=</div>
                 <Fraction size='text-5xl' num='?' denom='?'/>
               </div>
             </div>
         </div>
-        
+
         <div className="flex justify-center items-center mt-6">
-        <Button text='START' symbol='&gt;&gt;'/>
+        <Button text='START' symbol='&gt;&gt; ' onClick={() => setPage(2)}/>
         </div>
       </div>
       
@@ -49,4 +52,4 @@ const ImproperFractionGame = () => {
   );
 };
 
-export default ImproperFractionGame;
+export default Page1;

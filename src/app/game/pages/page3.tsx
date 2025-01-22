@@ -5,7 +5,7 @@ import Pizza from '../components/pizza'
 import SlicerComponent from "../components/slicerComponent";
 
 
-const Page3 = () => {
+const Page3 = ({setPage}) => {
     return (
       <div className="min-h-screen p-8">
         <div className="max-w-2xl mx-auto bg-pink-50 rounded-lg shadow-lg">
@@ -21,7 +21,7 @@ const Page3 = () => {
                 <Pizza numerator={0} denominator={0} color={""} circleColor="#c7e308"/>
             </div>
           </div>
-          <SlicerComponent/>
+          <SlicerComponent setPage={setPage}/>
         </div>
       </div>
     );

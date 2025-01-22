@@ -41,11 +41,7 @@ const MathProblem = () => {
       </div>
 
       {/* Step button */}
-      <div className="flex justify-center ">
-        <div className='border-black  flex justify-center items-center shadow-[-5px_5px_0px_black]'>
-            <Button text='STEP 3' symbol='&gt;&gt;'/>
-      </div>
-      </div>
+      
     </div>
   );
 };

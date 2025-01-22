@@ -17,11 +17,13 @@ const sendAdminMessage = () => {}
 
 export default function Page() {
   return (
+    
     <GameStateProvider>
       <Suspense fallback={<div>Loading...</div>}>
         <Game sendAdminMessage={sendAdminMessage} />
         
       </Suspense>
     </GameStateProvider>
+
   )
 }

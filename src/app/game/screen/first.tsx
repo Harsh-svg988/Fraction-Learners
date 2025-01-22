@@ -6,6 +6,8 @@ import Page2 from '../pages/page2';
 import Page3 from '../pages/page3';
 import Page4 from '../pages/page4';
 import Page5 from '../pages/page5';
+import { useRecoilState, useRecoilValue,RecoilRoot,useSetRecoilState } from 'recoil';
+
 
 export default function FirstScreen() {
   const { gameStateRef } = useGameState();
@@ -20,7 +22,7 @@ export default function FirstScreen() {
       case 1:
         return <Page1 setPage={setCurrentPage} mixedFraction={mixedFraction}/>;
       case 2:
-        return <Page2 setPage={setCurrentPage}/>;
+        return <Page2 setPage={setCurrentPage} mixedFraction={mixedFraction}/>;
       case 3:
         return <Page3 setPage={setCurrentPage}/>;
       case 4:
@@ -33,9 +35,11 @@ export default function FirstScreen() {
   };
 
   return (
+    <RecoilRoot>
     <div className="mx-auto">
       <Header mixedFraction={mixedFraction} />
       {renderPage()}
     </div>
+    </RecoilRoot>
   );
 }

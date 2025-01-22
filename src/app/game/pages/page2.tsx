@@ -18,22 +18,18 @@ interface DropZone {
   fraction?: { numerator: number; denominator: number };
 }
 
-const Page2 = ({setPage}) => {
+const Page2 = ({setPage,mixedFraction}) => {
   const [dropZone, setDropZone] = useState<DropZone>({});
   
-  const initialFraction: FractionTile = {
-    whole: 3,
-    numerator: 2,
-    denominator: 4
-  };
+ 
 
   const handleDragStart = (e: React.DragEvent, type: 'whole' | 'fraction') => {
     // Set the drag data with the type and values
     const dragData = {
       type,
-      whole: type === 'whole' ? initialFraction.whole : undefined,
-      numerator: type === 'fraction' ? initialFraction.numerator : undefined,
-      denominator: type === 'fraction' ? initialFraction.denominator : undefined
+      whole: type === 'whole' ? mixedFraction.whole : undefined,
+      numerator: type === 'fraction' ? mixedFraction.numerator : undefined,
+      denominator: type === 'fraction' ? mixedFraction.denominator : undefined
     };
     e.dataTransfer.setData('application/json', JSON.stringify(dragData));
   };
@@ -68,7 +64,7 @@ const Page2 = ({setPage}) => {
     <div className="min-h-screen p-8">
       <div className="max-w-2xl mx-auto bg-pink-50 rounded-lg shadow-lg">
         {/* Header */}
-        <Header2/>
+        <Header2 emoji='🤔'/>
 
         {/* Step indicator */}
         <StepModule/>
@@ -94,14 +90,14 @@ const Page2 = ({setPage}) => {
                 onDragStart={(e) => handleDragStart(e, 'fraction')}
               >
                 <div className="border border-black h-24 px-2 shadow-[-2px_2px_0px_black] pt-1 w-9">
-                  <div className="text-4xl font-bold text-purple-600">{initialFraction.numerator}</div>
+                  <div className="text-4xl font-bold text-purple-600">{mixedFraction.numerator}</div>
                   <div className="border-t-2 border-black"></div>
-                  <div className="text-4xl font-bold text-purple-600">{initialFraction.denominator}</div>
+                  <div className="text-4xl font-bold text-purple-600">{mixedFraction.denominator}</div>
                 </div>
               </div>
 
             </div>
-            <div className="text-[#f54f7b] mt-28">pick from here</div>
+            <div className="text-[#f54f7b] mt-32">pick from here</div>
            </div>
 
           {/* Right side - Drop zones */}
@@ -144,11 +140,11 @@ const Page2 = ({setPage}) => {
         {/* Bottom section */}
         <div className="bg-white p-6 rounded-lg mb-8 text-center text-2xl flex justify-center items-center">
 
-          <WholeFraction whole={3} num={2} denom={4} size='text-2xl '/>
+          <WholeFraction whole={mixedFraction.whole} num={mixedFraction.numerator} denom={mixedFraction.denominator} size='text-3xl '/>
           <div className='text-4xl ' >=</div>
-          <div className='text-green-600 mx-2 text-3xl'>3 wholes</div>
+          <div className='text-green-600 mx-2 text-4xl'>{mixedFraction.whole} wholes</div>
           <div className='text-4xl text-[#f54f7b]' >+</div>
-          <Fraction size='text-3xl' num='2' denom='4'/>
+        <Fraction size='text-3xl' num={mixedFraction.numerator} denom={mixedFraction.denominator}/>
 
         </div>
 

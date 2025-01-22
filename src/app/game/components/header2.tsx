@@ -1,7 +1,7 @@
 import React from "react";
 import WholeFraction from "./wholeFraction";
 import Fraction from "./fraction";
-const Header2 = ()=>{
+const Header2 = ({emoji})=>{
     return(
         <>
         <div className="mb-8 flex justify-center items-center">
@@ -17,7 +17,7 @@ const Header2 = ()=>{
               <div className="text-4xl">=</div>
               <Fraction size="text-4xl" num="?" denom="?"/>
               <div className="h-28 flex justify-center items-center bg-white border-l-4 border-t-4 border-b-4 border-[#f54f7b] rounded-lg w-24">
-                <span className="text-7xl">🤔</span>
+                <span className="text-7xl">{emoji}</span>
               </div>
             </div>
           </div>

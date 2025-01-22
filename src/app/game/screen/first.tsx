@@ -24,11 +24,11 @@ export default function FirstScreen() {
       case 2:
         return <Page2 setPage={setCurrentPage} mixedFraction={mixedFraction}/>;
       case 3:
-        return <Page3 setPage={setCurrentPage}/>;
+        return <Page3 setPage={setCurrentPage}  mixedFraction={mixedFraction}/>;
       case 4:
-        return <Page4 setPage={setCurrentPage}/>;
+        return <Page4 setPage={setCurrentPage}  mixedFraction={mixedFraction}/>;
       case 5:
-        return <Page5 />;
+        return <Page5  mixedFraction={mixedFraction} />;
       default:
         return <Page1 setPage={setCurrentPage} mixedFraction={mixedFraction}/>;
     }

@@ -1,7 +1,7 @@
 import React from "react";
 import WholeFraction from "./wholeFraction";
 import Fraction from "./fraction";
-const Header2 = ({emoji})=>{
+const Header2 = ({emoji,mixedFraction})=>{
     return(
         <>
         <div className="mb-8 flex justify-center items-center">
@@ -13,7 +13,7 @@ const Header2 = ({emoji})=>{
               </span>
             </div>
             <div className="bg-white text-black h-28 flex items-center justify-center border-4 border-[#f54f7b] rounded-lg">
-              <WholeFraction whole={1} num={1} denom={2} size="text-3xl" />
+              <WholeFraction whole={mixedFraction.whole} num={mixedFraction.numerator} denom={mixedFraction.denominator} size="text-3xl" />
               <div className="text-4xl">=</div>
               <Fraction size="text-4xl" num="?" denom="?"/>
               <div className="h-28 flex justify-center items-center bg-white border-l-4 border-t-4 border-b-4 border-[#f54f7b] rounded-lg w-24">

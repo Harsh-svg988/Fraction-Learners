@@ -64,10 +64,10 @@ const Page2 = ({setPage,mixedFraction}) => {
     <div className="min-h-screen p-8">
       <div className="max-w-2xl mx-auto bg-pink-50 rounded-lg shadow-lg">
         {/* Header */}
-        <Header2 emoji='🤔'/>
+        <Header2 emoji='🤔' mixedFraction={mixedFraction}/>
 
         {/* Step indicator */}
-        <StepModule/>
+        <StepModule step="STEP 1" task ="Sum of WHOLES & FRACTIONS"/>
         
         {/* Main content */}
         <div className="grid grid-cols-2 gap-8 mb-8">
@@ -159,7 +159,7 @@ const Page2 = ({setPage,mixedFraction}) => {
                   outlineOffset: '-7px',
                 }}
               >
-              <Button text="START" symbol="&gt;&gt;" onClick={() => setPage(3)}/>
+              <Button text="STEP 2" symbol="&gt;&gt;" onClick={() => setPage(3)}/>
             </div>
           </div>
 

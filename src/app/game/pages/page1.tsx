@@ -8,18 +8,6 @@ import Fraction from '../components/fraction';
 
 
 const Page1 = ({setPage,mixedFraction}) => {
-  const router = useRouter();
-  const [started, setStarted] = useState(false);
-  const [numerator, setNumerator] = useState('');
-  const [denominator, setDenominator] = useState('');
-  const [isCorrect, setIsCorrect] = useState(null);
-
-  // The correct answer for 1 1/5 as an improper fraction is 6/5
-  const checkAnswer = () => {
-    const isNumeratorCorrect = parseInt(numerator) === 6;
-    const isDenominatorCorrect = parseInt(denominator) === 5;
-    setIsCorrect(isNumeratorCorrect && isDenominatorCorrect);
-  };
 
   return (
     <div className="flex justify-center mt-20 ">

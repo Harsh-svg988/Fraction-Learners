@@ -7,15 +7,15 @@ import { useRecoilState, useRecoilValue,RecoilRoot,useSetRecoilState } from 'rec
 
 
 
-const Page3 = ({setPage}) => {
+const Page3 = ({setPage,mixedFraction}) => {
     return (
       <div className="min-h-screen p-8">
         <div className="max-w-2xl mx-auto bg-pink-50 rounded-lg shadow-lg">
           {/* Header */}
-          <Header2 emoji='😃'/>
+          <Header2 emoji='😃' mixedFraction={mixedFraction}/>
   
           {/* Step indicator */}
-          <StepModule />
+          <StepModule step="STEP 2" task ="Whole to Fractions"/>
           <div className="flex justify-center">
             <div className="flex gap-3">
                 <Pizza numerator={0} denominator={0} color={""} circleColor="#c7e308" />

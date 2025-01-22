@@ -6,17 +6,17 @@ import MathProblem from "../components/mathProblem";
 import Button from "../components/button";
 import { useDividerStore } from "../../game/store/useDividerStore"
 
-const Page4 = ({setPage}) => {
+const Page4 = ({setPage,mixedFraction}) => {
   const {divider} = useDividerStore()
 
     return (
-      <div className="min-h-screen p-8">
+      <div className="min-h-screen p-8 ">
         <div className="max-w-2xl mx-auto  rounded-lg shadow-lg">
           {/* Header */}
-          <Header2 emoji='😃'/>
+          <Header2 emoji='😃' mixedFraction={mixedFraction}/>
   
           {/* Step indicator */}
-          <StepModule />
+          <StepModule step="STEP 3" task ="ADD THE  Fraction"/>
           <div className="flex justify-center">
             <div className="flex gap-3">
                 <Pizza numerator={0} denominator={divider}  circleColor="#c7e308" />
@@ -24,10 +24,10 @@ const Page4 = ({setPage}) => {
                 <Pizza numerator={0} denominator={divider} color="#99d502" circleColor="#c7e308"/>
             </div>
           </div>
-          <MathProblem/>
+          <MathProblem mixedFraction={mixedFraction}/>
           <div className="flex justify-center ">
-        <div className='border-black  flex justify-center items-center shadow-[-5px_5px_0px_black]'>
-            <Button text='STEP 3' symbol='&gt;&gt;' onClick={() => setPage(5)}/>
+        <div className='border-black  flex justify-center items-center shadow-[-5px_5px_0px_black] mb-7 mt-3'>
+            <Button text='STEP 4' symbol='&gt;&gt;' onClick={() => setPage(5)}/>
       </div>
       </div>
         </div>

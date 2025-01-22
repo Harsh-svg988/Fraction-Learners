@@ -4,11 +4,21 @@ import { useRouter } from 'next/navigation';
 import Button from '../components/button'
 import WholeFraction from '../components/wholeFraction';
 import Fraction from '../components/fraction';
+import { useGameState } from '../state-utils';
 
 
+const Page1 = ({mixedFraction}) => {
+  const { setGameStateRef } = useGameState();
 
-const Page1 = ({setPage,mixedFraction}) => {
-
+  const updateStep = () => {
+    setGameStateRef((prevState) => ({
+      ...prevState,
+      state1: {
+        ...prevState.state1,
+        step: 1, // Set the step to 1
+      },
+    }));
+  };
   return (
     <div className="flex justify-center mt-20 ">
       <div>
@@ -32,7 +42,7 @@ const Page1 = ({setPage,mixedFraction}) => {
         </div>
 
         <div className="flex justify-center items-center mt-6">
-        <Button text='START' symbol='&gt;&gt; ' onClick={() => setPage(2)}/>
+        <Button text='START' symbol='&gt;&gt; ' onClick={updateStep}/>
         </div>
       </div>
       

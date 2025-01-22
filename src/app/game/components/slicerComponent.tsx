@@ -15,7 +15,7 @@ const SlicerIcon = ({ color }) => {
   return <img src={imageSrc} alt={color} />;
 };
 
-const PieSlicerSelector = ({ setPage }) => {
+const PieSlicerSelector = ({ update }) => {
   const [selectedSlicer, setSelectedSlicer] = useState<number | null>(null);
   
 
@@ -68,7 +68,7 @@ const PieSlicerSelector = ({ setPage }) => {
         <div className="mt-4 lg:mt-36 border-black flex justify-center items-center shadow-[-5px_5px_0px_black] ml-9">
           <button
             className="relative bg-pink-500 text-white text-2xl px-8 py-2 font-semibold"
-            onClick={() => setPage(4)}
+            onClick={update}
           >
             Slice
           </button>

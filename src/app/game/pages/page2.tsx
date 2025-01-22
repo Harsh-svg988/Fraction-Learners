@@ -5,7 +5,7 @@ import Fraction from '../components/fraction';
 import  Button  from '../components/button';
 import Header2 from '../components/header2'
 import StepModule from '../components/stepModule';
-
+import { useGameState } from '../state-utils';
 
 interface FractionTile {
   whole: number;
@@ -20,6 +20,17 @@ interface DropZone {
 
 const Page2 = ({setPage,mixedFraction}) => {
   const [dropZone, setDropZone] = useState<DropZone>({});
+  const { setGameStateRef } = useGameState();
+  
+    const updateStep = () => {
+      setGameStateRef((prevState) => ({
+        ...prevState,
+        state1: {
+          ...prevState.state1,
+          step: 2, // Set the step to 1
+        },
+      }));
+    };
   
  
 
@@ -159,7 +170,7 @@ const Page2 = ({setPage,mixedFraction}) => {
                   outlineOffset: '-7px',
                 }}
               >
-              <Button text="STEP 2" symbol="&gt;&gt;" onClick={() => setPage(3)}/>
+              <Button text="STEP 2" symbol="&gt;&gt;" onClick={updateStep}/>
             </div>
           </div>
 

@@ -5,10 +5,22 @@ import Button from '../components/button';
 import Header2 from '../components/header2';
 import StepModule from '../components/stepModule';
 import { useDividerStore } from "../../game/store/useDividerStore";
+import { useGameState } from '../state-utils';
 
 const FractionAddition = ({ mixedFraction }) => {
   const [selectedPieces, setSelectedPieces] = useState(0); // State for user input
   const { divider } = useDividerStore();
+  const { setGameStateRef } = useGameState();
+  
+    const updateStep = () => {
+      setGameStateRef((prevState) => ({
+        ...prevState,
+        state1: {
+          ...prevState.state1,
+          step: 0, // Set the step to 1
+        },
+      }));
+    };
 
   const handleInputChange = (e) => {
     const value = e.target.value;
@@ -84,7 +96,7 @@ const FractionAddition = ({ mixedFraction }) => {
             </div>
           </div>
           <div className="mt-4 border-black flex justify-center items-center shadow-[-5px_5px_0px_black]">
-            <Button text="DONE" symbol="" onClick={() => console.log("Selected Pieces:", selectedPieces)} />
+            <Button text="DONE" symbol="" onClick={updateStep} />
           </div>
         </div>
       </div>

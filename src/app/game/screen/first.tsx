@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useGameState } from '../state-utils';
 import Header from '../components/header';
 import Page1 from '../pages/page1';
@@ -11,34 +11,47 @@ import { useRecoilState, useRecoilValue,RecoilRoot,useSetRecoilState } from 'rec
 
 export default function FirstScreen() {
   const { gameStateRef } = useGameState();
-  const { mixedFraction } = gameStateRef.current.state1;
-  console.log(mixedFraction)
+  console.log(gameStateRef)
 
-  const [currentPage, setCurrentPage] = useState(1); // State to track the current page
+  const { mixedFraction } = gameStateRef.current.state1;
+  const step = gameStateRef.current.state1.step;
+
+  console.log(step)
+  // gameStateRef.current.state1.step=2
+  
+
+  const [currentPage, setCurrentPage] = useState<JSX.Element | null>(null)// State to track the current page
 
   // Function to switch pages
-  const renderPage = () => {
-    switch (currentPage) {
-      case 1:
-        return <Page1 setPage={setCurrentPage} mixedFraction={mixedFraction}/>;
-      case 2:
-        return <Page2 setPage={setCurrentPage} mixedFraction={mixedFraction}/>;
-      case 3:
-        return <Page3 setPage={setCurrentPage}  mixedFraction={mixedFraction}/>;
-      case 4:
-        return <Page4 setPage={setCurrentPage}  mixedFraction={mixedFraction}/>;
-      case 5:
-        return <Page5  mixedFraction={mixedFraction} />;
-      default:
-        return <Page1 setPage={setCurrentPage} mixedFraction={mixedFraction}/>;
-    }
-  };
+  useEffect(() => {
+    // Function to switch pages
+    const renderPage = () => {
+      switch (step) {
+        case 0:
+          return <Page1 mixedFraction={mixedFraction} />;
+        case 1:
+          return <Page2 setPage={setCurrentPage} mixedFraction={mixedFraction} />;
+        case 2:
+          return <Page3 setPage={setCurrentPage} mixedFraction={mixedFraction} />;
+        case 3:
+          return <Page4 setPage={setCurrentPage} mixedFraction={mixedFraction} />;
+        case 4:
+          return <Page5 mixedFraction={mixedFraction} />;
+        default:
+          return <Page1  mixedFraction={mixedFraction} />;
+      }
+    };
+
+    setCurrentPage(renderPage()); // Update the current page when the step changes
+  }, [step, mixedFraction]); // Dependency array to track changes in step and mixedFraction
+  console.log("after useeffect", step)
+
 
   return (
     <RecoilRoot>
     <div className="mx-auto">
       <Header mixedFraction={mixedFraction} />
-      {renderPage()}
+      {currentPage}
     </div>
     </RecoilRoot>
   );

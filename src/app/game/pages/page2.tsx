@@ -6,6 +6,7 @@ import  Button  from '../components/button';
 import Header2 from '../components/header2'
 import StepModule from '../components/stepModule';
 import { useGameState } from '../state-utils';
+import { useSoundEffects } from '../utils/sound';
 
 interface FractionTile {
   whole: number;
@@ -18,7 +19,14 @@ interface DropZone {
   fraction?: { numerator: number; denominator: number };
 }
 
-const Page2 = ({setPage,mixedFraction}) => {
+const Page2 = ({mixedFraction}) => {
+
+  const handleClick = ()=>{
+    updateStep()
+    const soundEffect = useSoundEffects()
+    soundEffect.join.play()
+  }
+
   const [dropZone, setDropZone] = useState<DropZone>({});
   const { setGameStateRef } = useGameState();
   
@@ -170,7 +178,7 @@ const Page2 = ({setPage,mixedFraction}) => {
                   outlineOffset: '-7px',
                 }}
               >
-              <Button text="STEP 2" symbol="&gt;&gt;" onClick={updateStep}/>
+              <Button text="STEP 2" symbol="&gt;&gt;" onClick={handleClick}/>
             </div>
           </div>
 

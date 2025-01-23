@@ -13,8 +13,3 @@ export const useDividerStore = create<DividerState>((set) => ({
 }));
 
 
-
-export const setState = (step)=>{
-  const {gameStateRef} = useGameState();
-  gameStateRef.current.state1.step =step
-}

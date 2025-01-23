@@ -2,15 +2,21 @@ import React, { useState } from 'react';
 import Pizza from '../components/pizza';
 import Fraction from '../components/fraction';
 import Button from '../components/button';
-import Header2 from '../components/header2';
+import Header3 from '../components/header3';
 import StepModule from '../components/stepModule';
 import { useDividerStore } from "../../game/store/useDividerStore";
 import { useGameState } from '../state-utils';
+import { useSoundEffects } from "../utils/sound";
 
 const FractionAddition = ({ mixedFraction }) => {
   const [selectedPieces, setSelectedPieces] = useState(0); // State for user input
   const { divider } = useDividerStore();
   const { setGameStateRef } = useGameState();
+  const handleClick = ()=>{
+      updateStep()
+      const soundEffect = useSoundEffects()
+      soundEffect.join.play()
+    }
   
     const updateStep = () => {
       setGameStateRef((prevState) => ({
@@ -32,7 +38,7 @@ const FractionAddition = ({ mixedFraction }) => {
 
   return (
     <div className="flex flex-col items-center p-4 sm:p-6 md:p-8 w-full max-w-4xl mx-auto">
-      <Header2 emoji="🤩" mixedFraction={mixedFraction} />
+      <Header3 emoji="🤩" mixedFraction={mixedFraction} bool={false}/>
       <StepModule step="STEP 4" task="ADD THE FRACTION" />
       <div className="flex flex-col md:flex-row items-center w-full border border-black p-4 gap-6">
         {/* Left section */}
@@ -96,7 +102,7 @@ const FractionAddition = ({ mixedFraction }) => {
             </div>
           </div>
           <div className="mt-4 border-black flex justify-center items-center shadow-[-5px_5px_0px_black]">
-            <Button text="DONE" symbol="" onClick={updateStep} />
+            <Button text="DONE" symbol="" onClick={handleClick} />
           </div>
         </div>
       </div>

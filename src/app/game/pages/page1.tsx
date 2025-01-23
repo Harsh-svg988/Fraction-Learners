@@ -1,14 +1,19 @@
-
 import React, { useState } from 'react';
-import { useRouter } from 'next/navigation';
 import Button from '../components/button'
 import WholeFraction from '../components/wholeFraction';
 import Fraction from '../components/fraction';
 import { useGameState } from '../state-utils';
+import { useSoundEffects } from "../utils/sound";
 
 
 const Page1 = ({mixedFraction}) => {
   const { setGameStateRef } = useGameState();
+  const handleClick = ()=>{
+    updateStep()
+    const soundEffect = useSoundEffects()
+    soundEffect.join.play()
+  
+  }
 
   const updateStep = () => {
     setGameStateRef((prevState) => ({
@@ -42,7 +47,7 @@ const Page1 = ({mixedFraction}) => {
         </div>
 
         <div className="flex justify-center items-center mt-6">
-        <Button text='START' symbol='&gt;&gt; ' onClick={updateStep}/>
+        <Button text='START' symbol='&gt;&gt; ' onClick={handleClick}/>
         </div>
       </div>
       

@@ -1,13 +1,13 @@
 import React from "react";
-import Header2 from '../components/header2'
+import Header3 from '../components/header3'
 import StepModule from '../components/stepModule';
 import Pizza from '../components/pizza'
 import MathProblem from "../components/mathProblem";
 import Button from "../components/button";
 import { useDividerStore } from "../../game/store/useDividerStore"
 import { useGameState } from "../state-utils";
-
-const Page4 = ({setPage,mixedFraction}) => {
+import { useSoundEffects } from "../utils/sound";
+const Page4 = ({mixedFraction}) => {
   const {divider} = useDividerStore()
   const { setGameStateRef } = useGameState();
   
@@ -21,11 +21,19 @@ const Page4 = ({setPage,mixedFraction}) => {
       }));
     };
 
+const handleClick = ()=>{
+  updateStep()
+  const soundEffect = useSoundEffects()
+  soundEffect.join.play()
+
+}
+
+
     return (
       <div className="min-h-screen p-8 ">
         <div className="max-w-2xl mx-auto  rounded-lg shadow-lg">
           {/* Header */}
-          <Header2 emoji='😃' mixedFraction={mixedFraction}/>
+          <Header3 emoji='😃' mixedFraction={mixedFraction} bool={true}/>
   
           {/* Step indicator */}
           <StepModule step="STEP 3" task ="ADD THE  Fraction"/>
@@ -39,7 +47,7 @@ const Page4 = ({setPage,mixedFraction}) => {
           <MathProblem mixedFraction={mixedFraction}/>
           <div className="flex justify-center ">
         <div className='border-black  flex justify-center items-center shadow-[-5px_5px_0px_black] mb-7 mt-3'>
-            <Button text='STEP 4' symbol='&gt;&gt;' onClick={updateStep}/>
+            <Button text='STEP 4' symbol='&gt;&gt;' onClick={handleClick} />
       </div>
       </div>
         </div>

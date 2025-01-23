@@ -6,7 +6,6 @@ import Page2 from '../pages/page2';
 import Page3 from '../pages/page3';
 import Page4 from '../pages/page4';
 import Page5 from '../pages/page5';
-import { useRecoilState, useRecoilValue,RecoilRoot,useSetRecoilState } from 'recoil';
 
 
 export default function FirstScreen() {
@@ -24,17 +23,16 @@ export default function FirstScreen() {
 
   // Function to switch pages
   useEffect(() => {
-    // Function to switch pages
     const renderPage = () => {
       switch (step) {
         case 0:
           return <Page1 mixedFraction={mixedFraction} />;
         case 1:
-          return <Page2 setPage={setCurrentPage} mixedFraction={mixedFraction} />;
+          return <Page2  mixedFraction={mixedFraction} />;
         case 2:
-          return <Page3 setPage={setCurrentPage} mixedFraction={mixedFraction} />;
+          return <Page3  mixedFraction={mixedFraction} />;
         case 3:
-          return <Page4 setPage={setCurrentPage} mixedFraction={mixedFraction} />;
+          return <Page4  mixedFraction={mixedFraction} />;
         case 4:
           return <Page5 mixedFraction={mixedFraction} />;
         default:
@@ -48,11 +46,11 @@ export default function FirstScreen() {
 
 
   return (
-    <RecoilRoot>
+    
     <div className="mx-auto">
       <Header mixedFraction={mixedFraction} />
       {currentPage}
     </div>
-    </RecoilRoot>
+    
   );
 }
